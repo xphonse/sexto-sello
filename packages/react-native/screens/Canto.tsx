@@ -2,13 +2,13 @@ import React from 'react'
 import { StyleSheet, Text, View, ScrollView } from 'react-native'
 import { useSelector } from 'react-redux'
 import FooterArrows from '../components/FooterArrows'
-import { CantosData } from '../data/Cantos'
+import { CHOIRS } from 'data'
 import useThemeColors from '../hooks/useThemeColors'
 
 const Contenido = (props) => {
     const { themeColors } = useThemeColors()
     const { fontSize } = useSelector((state) => state.ui)
-    const newText = props.datos.texto.split('/n').map((text, i) => {
+    const newText = props.datos.split('/n').map((text, i) => {
         return (
             <View key={i} style={styles.parrafoView}>
                 <Text
@@ -34,24 +34,25 @@ const Contenido = (props) => {
 
 const Canto = (props) => {
     const idOracion = props.route.params.id
-    const aFiltrar2 = CantosData.filter((Canto) => Canto.id == idOracion)
-    const aFiltrar3 = aFiltrar2[0].contenido
-    const noData = CantosData.length
+    const choir = CHOIRS.find((Canto) => Canto.id == idOracion)
+    const { paragraphs } = choir
+    const totalChoirs = CHOIRS.length
 
     const { themeColors } = useThemeColors()
 
     const Parrafos = () =>
-        aFiltrar3.map((oracion, i) => (
+        paragraphs.map((oracion, i) => (
             <View key={i}>
                 <Contenido datos={oracion} key={Math.random()} />
             </View>
         ))
+
     return (
         <View style={{ flex: 1, backgroundColor: themeColors.backgroundColor }}>
             <ScrollView contentContainerStyle={{ flexGrow: 1, padding: 10 }}>
                 <View style={styles.container}>
                     <Text style={{ ...styles.title, color: themeColors.color }}>
-                        {aFiltrar2[0].pag} - {aFiltrar2[0].titulo}
+                        {choir.page} - {choir.title}
                     </Text>
                     <Parrafos />
                 </View>
@@ -60,7 +61,7 @@ const Canto = (props) => {
                 sendTo="Canto"
                 id={props.route.params.id}
                 navigation={props.navigation}
-                noData={noData}
+                noData={totalChoirs}
             />
         </View>
     )

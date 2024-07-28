@@ -1,21 +1,20 @@
 import React from 'react'
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
 import MainFrame from '../components/MainFrame'
-
-import { CantosData } from '../data/Cantos'
 import useThemeColors from '../hooks/useThemeColors'
+import { CHOIRS } from 'data'
 
 const Cantos = (props) => {
-    const listOraciones = CantosData.map((oracion) => (
+    const listOraciones = CHOIRS.map((c) => (
         <Boton
-            key={oracion.id}
-            debug={oracion}
+            key={c.id}
+            debug={c}
             navigation={props.navigation}
-            pag={oracion.pag}
-            list={oracion.id}
-            titulo={oracion.titulo}
+            pag={c.page}
+            list={c.id}
+            titulo={c.title}
         >
-            {oracion.titulo}
+            {c.title}
         </Boton>
     ))
 
@@ -28,7 +27,6 @@ const Cantos = (props) => {
 
 const Boton = (props) => {
     const { themeColors } = useThemeColors()
-    //console.log(props.debug)
     return (
         <TouchableOpacity
             onPress={() =>

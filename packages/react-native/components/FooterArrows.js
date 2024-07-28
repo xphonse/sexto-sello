@@ -29,7 +29,7 @@ const FooterArrows = (props) => {
     const [isSettingsOpened, setisSettingsOpened] = useState(true)
     let id = props.id
     let leftDisabled = id == 0 ? true : false
-    let rightDisabled = id == parseInt(props.noData) - 1 ? true : false
+    let rightDisabled = id == +props.noData - 1
 
     const dispatch = useDispatch()
 
@@ -57,12 +57,12 @@ const FooterArrows = (props) => {
                     }}
                 >
                     <Ionicons
-                        name="md-text"
+                        name="text"
                         size={24}
                         color={themeColors.color}
                     />
                     <Ionicons
-                        name="md-arrow-down"
+                        name="arrow-down"
                         size={24}
                         color={themeColors.color}
                     />
@@ -76,13 +76,13 @@ const FooterArrows = (props) => {
                 >
                     {themeMode == 'dark' ? (
                         <Ionicons
-                            name="ios-sunny"
+                            name="sunny"
                             size={24}
                             color={themeColors.color}
                         />
                     ) : (
                         <Ionicons
-                            name="ios-moon"
+                            name="moon"
                             size={24}
                             color={themeColors.color}
                         />
@@ -96,12 +96,12 @@ const FooterArrows = (props) => {
                     }}
                 >
                     <Ionicons
-                        name="md-text"
+                        name="text-outline"
                         size={24}
                         color={themeColors.color}
                     />
                     <Ionicons
-                        name="md-arrow-up"
+                        name="arrow-up"
                         size={24}
                         color={themeColors.color}
                     />
@@ -111,7 +111,7 @@ const FooterArrows = (props) => {
                 <Arrow
                     sendTo={props.sendTo}
                     id={parseInt(id) - 1}
-                    icon="md-arrow-back"
+                    icon="arrow-back"
                     disabled={leftDisabled}
                     navigation={props.navigation}
                     color={themeColors.color}
@@ -123,12 +123,12 @@ const FooterArrows = (props) => {
                     }}
                 >
                     <Ionicons
-                        name="settings"
+                        name="settings-outline"
                         size={20}
                         color={themeColors.color}
                     />
                     <Ionicons
-                        name={`md-arrow-${isSettingsOpened ? 'down' : 'up'}`}
+                        name={`arrow-${isSettingsOpened ? 'down' : 'up'}`}
                         size={20}
                         color={themeColors.color}
                     />
@@ -136,7 +136,7 @@ const FooterArrows = (props) => {
                 <Arrow
                     sendTo={props.sendTo}
                     id={parseInt(id) + 1}
-                    icon="md-arrow-forward"
+                    icon="arrow-forward"
                     disabled={rightDisabled}
                     navigation={props.navigation}
                     color={themeColors.color}

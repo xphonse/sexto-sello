@@ -9,7 +9,7 @@ const useThemeColors = () => {
     useEffect(() => {
         if (themeMode == 'light') setThemeColors(LightColors)
         if (themeMode == 'dark') setThemeColors(DarkColors)
-        console.log('rerender?')
+        console.log('rerender')
         console.log(themeMode)
     }, [themeMode])
 

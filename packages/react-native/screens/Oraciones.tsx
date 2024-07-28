@@ -2,19 +2,18 @@ import React from 'react'
 import { StyleSheet, View } from 'react-native'
 import MainFrame from '../components/MainFrame'
 import Boton from './components/Boton'
-
-import { OracionesData } from '../data/Oraciones'
+import { PRAYERS } from 'data'
 
 const Oraciones = (props) => {
-    const listOraciones = OracionesData.map((oracion) => (
+    const listOraciones = PRAYERS.map((p) => (
         <Boton
-            key={oracion.id}
+            key={p.id}
             navigation={props.navigation}
-            pag={oracion.pag}
-            list={oracion.id}
-            titulo={oracion.titulo}
+            pag={p.page}
+            list={p.id}
+            titulo={p.title}
         >
-            {oracion.titulo}
+            {p.title}
         </Boton>
     ))
 

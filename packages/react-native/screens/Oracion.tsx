@@ -1,28 +1,28 @@
 import React, { useEffect, useState } from 'react'
 import { StyleSheet, Text, View, ScrollView } from 'react-native'
-import { OracionData, OracionesData } from '../data/Oraciones'
 import FooterArrows from '../components/FooterArrows'
 import { useSelector } from 'react-redux'
 import useThemeColors from '../hooks/useThemeColors'
+import { Prayer, PRAYERS } from 'data'
 
 const getOracion = (id) => {
-    return OracionesData.find((oracion) => oracion.id == id)
+    return PRAYERS.find((p) => p.id == id)
 }
 
 const OracionScreen = (props) => {
-    const [oracion, setOracion] = useState<OracionData>()
+    const [prayer, setPrayer] = useState<Prayer>()
     const { themeColors } = useThemeColors()
     const { fontSize } = useSelector((state) => state.ui)
 
     useEffect(() => {
-        const oracion = getOracion(props.route.params.id)
-        setOracion(oracion)
+        const p = getOracion(props.route.params.id)
+        setPrayer(p)
     })
 
-    const Parrafo = ({ parrafo }: { parrafo: string[] }) => {
+    const Parrafo = ({ paragraph }: { paragraph: string[] }) => {
         return (
             <View style={styles.parrafoView}>
-                {parrafo.map((texto, i: number) => (
+                {paragraph.map((texto, i: number) => (
                     <Text
                         key={i}
                         style={{ ...styles.parrafoText, fontSize: fontSize }}
@@ -66,7 +66,7 @@ const OracionScreen = (props) => {
         },
     })
 
-    if (!oracion) return <></>
+    if (!prayer) return <></>
 
     return (
         <View style={{ flex: 1 }}>
@@ -84,10 +84,10 @@ const OracionScreen = (props) => {
                             fontSize: fontSize + 2,
                         }}
                     >
-                        {oracion.pag} - {oracion.titulo}
+                        {prayer.page} - {prayer.title}
                     </Text>
-                    {oracion.parrafos.map((parrafo, i) => (
-                        <Parrafo key={i} parrafo={parrafo} />
+                    {prayer.paragraphs.map((paragraph, i) => (
+                        <Parrafo key={i} paragraph={paragraph} />
                     ))}
                 </View>
             </ScrollView>
@@ -95,7 +95,7 @@ const OracionScreen = (props) => {
                 sendTo="Oracion"
                 id={props.route.params.id}
                 navigation={props.navigation}
-                noData={OracionesData.length}
+                noData={PRAYERS.length}
             />
         </View>
     )
