@@ -7,7 +7,7 @@ export interface Prayer {
 
 export type Prayers = Prayer[]
 
-const PRAYERS: Prayers = [
+export const PRAYERS: Prayers = [
     {
         id: '0',
         page: '1',

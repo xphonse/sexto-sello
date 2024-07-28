@@ -1,6 +1,6 @@
 import { Roboto } from "next/font/google";
 import Button from "@/components/Button";
-import CHOIRS from "@/data/choirs";
+import { CHOIRS } from "data";
 
 const roboto = Roboto({
   weight: "400",
