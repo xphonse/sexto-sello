@@ -21,7 +21,7 @@ export default function Home() {
           className="mt-8"
           width={646 / 4}
           height="1"
-          src="/google_play.png"
+          src="google_play.png"
           alt="google_play"
         />
       </Link>
