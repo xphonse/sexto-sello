@@ -4,13 +4,15 @@
   "license": "MIT",
   "scripts": {},
   "private": true,
-  "dependencies": {},
   "devDependencies": {
+    "@nx/eslint": "^19.5.3",
     "@nx/js": "19.5.3",
+    "eslint": "~8.57.0",
     "nx": "19.5.3"
   },
   "workspaces": [
     "packages/*",
     "libs/*"
-  ]
+  ],
+  "dependencies": {}
 }
