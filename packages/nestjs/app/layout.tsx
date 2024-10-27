@@ -1,12 +1,12 @@
-import './globals.css';
-import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import "./globals.css";
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'Sexto Sello',
-  description: 'Oraciones y Cantos dados al Sexto Sello',
+  title: "Sexto Sello",
+  description: "Oraciones y Cantos dados al Sexto Sello",
 };
 
 export default function RootLayout({

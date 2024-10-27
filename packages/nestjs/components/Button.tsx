@@ -1,7 +1,7 @@
 const Button = ({
   text,
   url,
-  w = '32',
+  w = "32",
 }: {
   text: string;
   url: string;

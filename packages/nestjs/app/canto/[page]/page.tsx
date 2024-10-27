@@ -21,27 +21,26 @@ export default function Page({ params }: { params: { page: string } }) {
   const nextChoir = CHOIRS[choirIndex + 1];
 
   return (
-      <main
-          className={`flex min-h-screen flex-col items-center justify-center p-24 ${roboto.className}`}
-      >
-        <h1 className="text-2xl mb-4">
-          {choir.page} - {choir.title}
-        </h1>
-        {choir.paragraphs.map((p, i) => (
-            <Paragraph key={i}>
-              {p.split("/n").map((t) => (
-                  <>
-                    {t}
-                    <br />
-                  </>
-              ))}
-            </Paragraph>
-        ))}
-        <div className="flex space-x-4 mt-4">
-          {prevChoir && <Button text="←" url={`/canto/${prevChoir.page}`} />}
-          <Button text="Regresar" url="/canto" />
-          {nextChoir && <Button text="→" url={`/canto/${nextChoir.page}`} />}
-        </div>
-      </main>
+    <main
+      className={`flex min-h-screen flex-col items-center justify-center p-24 ${roboto.className}`}
+    >
+      <h1 className="text-2xl mb-4">
+        {choir.page} - {choir.title}
+      </h1>
+      {choir.paragraphs.map((p, i) => (
+        <Paragraph key={i}>
+          {p.split("/n").map((t) => (
+            <>
+              {t} <br />
+            </>
+          ))}
+        </Paragraph>
+      ))}
+      <div className="flex space-x-4 mt-4">
+        {prevChoir && <Button text="←" url={`/canto/${prevChoir.page}`} />}
+        <Button text="Regresar" url="/canto" />
+        {nextChoir && <Button text="→" url={`/canto/${nextChoir.page}`} />}
+      </div>
+    </main>
   );
 }

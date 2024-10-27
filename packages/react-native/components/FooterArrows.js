@@ -56,11 +56,7 @@ const FooterArrows = (props) => {
                         dispatch(decrementFontSize())
                     }}
                 >
-                    <Ionicons
-                        name="text"
-                        size={24}
-                        color={themeColors.color}
-                    />
+                    <Ionicons name="text" size={24} color={themeColors.color} />
                     <Ionicons
                         name="arrow-down"
                         size={24}
