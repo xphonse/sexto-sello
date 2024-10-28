@@ -20,7 +20,7 @@ export default function Home() {
             key={i}
             text={`${p.page} - ${p.title}`}
             w="96"
-            url={"oracion/" +getSlug(p)}
+            url={"oracion/" + getSlug(p)}
           />
         );
       })}
