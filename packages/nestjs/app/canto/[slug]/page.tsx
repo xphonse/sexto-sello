@@ -2,6 +2,7 @@ import { Roboto } from "next/font/google";
 import Button from "@/components/Button";
 import Paragraph from "@/components/Paragraph";
 import { CHOIRS } from "data";
+import { getSlug } from "@/helpers/slug";
 
 const roboto = Roboto({
   weight: "400",
@@ -9,11 +10,11 @@ const roboto = Roboto({
 });
 
 export async function generateStaticParams() {
-  return CHOIRS.map((c) => ({ page: c.page }));
+  return CHOIRS.map((c) => ({ slug: getSlug(c) }));
 }
 
-export default function Page({ params }: { params: { page: string } }) {
-  const choirIndex = CHOIRS.findIndex((o) => o.page === params.page);
+export default function Page({ params }: { params: { slug: string } }) {
+  const choirIndex = CHOIRS.findIndex((c) => getSlug(c) === params.slug);
   const choir = CHOIRS[choirIndex];
   if (!choir) return <div></div>;
 
@@ -37,9 +38,9 @@ export default function Page({ params }: { params: { page: string } }) {
         </Paragraph>
       ))}
       <div className="flex space-x-4 mt-4">
-        {prevChoir && <Button text="←" url={`/canto/${prevChoir.page}`} />}
+        {prevChoir && <Button text="←" url={`/canto/${getSlug(prevChoir)}`} />}
         <Button text="Regresar" url="/canto" />
-        {nextChoir && <Button text="→" url={`/canto/${nextChoir.page}`} />}
+        {nextChoir && <Button text="→" url={`/canto/${getSlug(nextChoir)}`} />}
       </div>
     </main>
   );

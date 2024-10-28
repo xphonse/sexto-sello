@@ -114,7 +114,7 @@ export const PRAYERS: Prayers = [
     {
         id: '7',
         page: '8',
-        title: 'CREDO ',
+        title: 'CREDO',
         paragraphs: [
             [
                 'Creo en Dios Padre Todopoderoso, Creador del Cielo, de la Tierra y de todas las cosas visibles e invisibles.',

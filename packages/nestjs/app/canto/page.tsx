@@ -1,6 +1,7 @@
 import { Roboto } from "next/font/google";
 import Button from "@/components/Button";
 import { CHOIRS } from "data";
+import { getSlug } from "@/helpers/slug";
 
 const roboto = Roboto({
   weight: "400",
@@ -19,7 +20,7 @@ export default function Home() {
             key={i}
             text={`${c.page} - ${c.title}`}
             w="96"
-            url={"canto/" + c.page}
+            url={"canto/" + getSlug(c)}
           />
         );
       })}
