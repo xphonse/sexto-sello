@@ -2,6 +2,7 @@ import { Roboto } from "next/font/google";
 import Button from "@/components/Button";
 import Paragraph from "@/components/Paragraph";
 import { PRAYERS } from "data";
+import { getPageFromSlug, getSlug } from "@/helpers/slug";
 
 const roboto = Roboto({
   weight: "400",
@@ -9,11 +10,12 @@ const roboto = Roboto({
 });
 
 export async function generateStaticParams() {
-  return PRAYERS.map((prayer) => ({ page: prayer.page }));
+  return PRAYERS.map((prayer) => ({slug:getSlug(prayer) }));
 }
 
-export default function Page({ params }: { params: { page: string } }) {
-  const prayerIndex = PRAYERS.findIndex((p) => p.page === params.page);
+export default function Page({ params }: { params: {slug: string } }) {
+  const page = getPageFromSlug(params.slug);
+  const prayerIndex = PRAYERS.findIndex((p) => p.page === page);
   const prayer = PRAYERS[prayerIndex];
   if (!prayer) return <div></div>;
 
@@ -36,9 +38,9 @@ export default function Page({ params }: { params: { page: string } }) {
       ))}
 
       <div className="flex space-x-4 mt-4">
-        {prevPrayer && <Button text="←" url={`/oracion/${prevPrayer.page}`} />}
+        {prevPrayer && <Button text="←" url={`/oracion/${getSlug(prevPrayer)}`} />}
         <Button text="Regresar" url="/oracion" />
-        {nextPrayer && <Button text="→" url={`/oracion/${nextPrayer.page}`} />}
+        {nextPrayer && <Button text="→" url={`/oracion/${getSlug(nextPrayer)}`} />}
       </div>
     </main>
   );
