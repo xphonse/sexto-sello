@@ -1,150 +1,74 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+Content app for Spanish-speaking users of the Sexto Sello movement. Choirs and prayers from a physical book are digitized here and served through two frontends that share `libs/data`.
 
-## Project Overview
-
-Sexto Sello is a monorepo containing a Next.js website and React Native (Expo) mobile app for displaying religious choirs and prayers. Both applications consume shared data from the `libs/data` package.
-
-**Live Deployments:**
 - Website: https://sextosello.com/
 - Android App: https://play.google.com/store/apps/details?id=com.sextosello.cantos_y_coros
 
-## Prerequisites
+## Critical build step
 
-- Node.js v18.20.4 (specified in `.nvmrc`)
-- **For iOS development (macOS only):**
-  - Xcode (full installation from App Store, not just Command Line Tools)
-  - After installing Xcode:
-    - Open Xcode at least once and accept the license
-    - Run: `sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer`
-    - Verify simulator: `xcrun simctl list devices`
-- **For Android development:**
-  - Android Studio with Android SDK
-
-## Initial Setup
+`libs/data` must be compiled before running either app. Run this after any change to `libs/data/choirs.ts` or `libs/data/prayers.ts`:
 
 ```bash
-# Verify Node version
-node -v  # Should be v18.20.4
-
-# Install Nx globally
-npm add --global nx@latest
-
-# Install dependencies
-npm install
-
-# CRITICAL: Build the shared data library first
-# This MUST be done before running either app, otherwise import errors will occur
 nx build data
 ```
 
-## Development Commands
+Import errors at runtime almost always mean this step was skipped.
 
-### Shared Data Library (`libs/data`)
+## Deployment
+
+### Website
+
+The site is a static export — `nx start` is never used in production.
+
 ```bash
-# Build the data library (required before first run of any app)
-nx build data
-
-# The data library must be rebuilt whenever changes are made to:
-# - libs/data/choirs.ts
-# - libs/data/prayers.ts
+nx build nestjs          # outputs to packages/nestjs/out/
+# then rsync/scp packages/nestjs/out/ to the VPS
 ```
 
-### Next.js Website (`packages/nestjs`)
+All image `src` values are prefixed with `/images/` by the custom loader in `packages/nestjs/imgLoader.js`. Static images must live in `packages/nestjs/public/images/`.
+
+### Mobile (Android + iOS)
+
+Uses EAS Build. Both platforms are supported. After building, upload manually to Play Store / App Store Connect.
+
 ```bash
-# Start development server
-nx dev nestjs
-
-# Server runs on http://localhost:3000
-
-# Build for production
-nx build nestjs
-
-# Start production server
-nx start nestjs
-
-# Lint
-nx lint nestjs
+cd packages/react-native
+eas build --platform android --profile production
+eas build --platform ios --profile production
 ```
 
-### React Native App (`packages/react-native`)
-```bash
-# Start Expo development server (recommended for development)
-nx start react-native
+EAS profiles (`eas.json`): `development` (internal), `preview` (internal), `production`.
 
-# Start with specific platform (requires platform-specific setup)
-nx android react-native  # Requires Android Studio and Android SDK
-nx ios react-native      # Requires Xcode (macOS only)
-nx web react-native      # Web browser
+## Adding or editing content
 
-# Lint
-nx lint react-native
+Edit `libs/data/choirs.ts` or `libs/data/prayers.ts` directly, then run `nx build data`.
 
-# Note: For mobile development, Expo Go app on phone is the easiest option
-# Platform-specific builds require full native toolchain setup
+**Choir line breaks** — use `/n` (literal slash-n, not backslash-n) inside paragraph strings. The website splits on `/n` and inserts `<br />`. Choir text is all-caps by convention, matching the physical book.
+
+```ts
+'FIRST LINE /nSECOND LINE /nTHIRD LINE'
 ```
 
-## Architecture
+**Prayer paragraph structure** — `paragraphs` is a 2D array. Each inner array is a visual group of lines rendered together:
 
-### Monorepo Structure
-
-This is an Nx monorepo with npm workspaces containing:
-
-- **`libs/data`**: Shared TypeScript library containing religious content data
-  - `choirs.ts`: Choir/hymn data with lyrics organized by paragraphs
-  - `prayers.ts`: Prayer data with multi-dimensional paragraph arrays
-  - Compiles to CommonJS in `dist/` directory with TypeScript declarations
-  - Must be built before running dependent applications
-
-- **`packages/nestjs`**: Next.js 14 website (incorrectly named "nestjs", actually Next.js)
-  - App Router structure with dynamic routes
-  - Routes: `/canto/[slug]`, `/oracion/[slug]` for individual items
-  - Uses Tailwind CSS for styling
-  - Imports data from `data` package
-
-- **`packages/react-native`**: Expo/React Native mobile app
-  - Uses React Navigation with native stack navigator
-  - Redux Toolkit for state management (UI slice in `store/slices/ui`)
-  - Screens: Home, Cantos, Oraciones, Canto (detail), Oracion (detail), Informacion
-  - AsyncStorage for local persistence
-  - Imports data from `data` package
-
-### Data Flow
-
-1. Religious content is defined in `libs/data` as TypeScript objects
-2. `libs/data` is compiled to CommonJS with type definitions
-3. Both Next.js and React Native apps import from the compiled `data` package
-4. Apps display the data through list and detail views
-
-### Key Data Structures
-
-```typescript
-// Choir/Hymn structure
-interface Choir {
-  id: string;
-  page: string;
-  title: string;
-  paragraphs: string[];  // Each paragraph may contain /n for line breaks
-}
-
-// Prayer structure
-interface Prayer {
-  id: string;
-  page: string;
-  title: string;
-  paragraphs: string[][];  // Multi-dimensional array for complex layouts
-}
+```ts
+paragraphs: [
+  ['A single-line paragraph.'],
+  ['Line one of a group.', 'Line two.', 'Line three.'],
+]
 ```
 
-## Important Notes
+**Slugs** — routes are generated as `/{page}-{normalized-title}`. The `page` field is the page number from the physical book. It prefixes the slug and must be unique within the collection.
 
-- The package named `nestjs` is actually a Next.js application, not NestJS
-- Always run `nx build data` after modifying content in `libs/data`
-- The `data` package uses workspace protocol (`"data": "*"`) for local linking
-- Text formatting in data uses `/n` for line breaks within strings
-- Both apps share identical data sources but have platform-specific UI implementations
+## Known dead code
 
-## Testing
+`packages/react-native/helpers/speech.ts` (`speakParagraph`) references `parrafo.texto`, which doesn't exist in the actual data structures. The text-to-speech feature was never finished. Don't wire it up without rewriting it first.
 
-Currently, the data library has a placeholder test script that exits with an error. No formal test suite is configured for any package.
+## Known quirks
+
+- `uiSlice` in `store/slices/ui.ts` has `name: 'asdf'` — harmless leftover, only affects Redux DevTools labels.
+- Font size is clamped 12–36 in `store/slices/thunks.ts`. Initial value (12) is in `packages/react-native/data/constants.ts`.
+- User preferences are persisted to AsyncStorage under the keys `'fontSize'` and `'themeMode'`. Renaming these keys silently resets preferences for existing users.
+- `packages/nestjs` is a Next.js app, not the NestJS framework. The naming is a mistake that predates this codebase.
+- No test suite exists. The data library's test script exits with an error by design (placeholder).
