@@ -11,7 +11,7 @@ const roboto = Roboto({
 export default function Home() {
   return (
     <main
-      className={`flex min-h-screen flex-col items-center justify-center p-24 ${roboto.className}`}
+      className={`flex min-h-screen flex-col items-center justify-center p-24 text-slate-900 dark:text-slate-100 ${roboto.className}`}
     >
       <h1 className="text-2xl mb-4">Oraciones</h1>
       {PRAYERS.map((p, i) => {

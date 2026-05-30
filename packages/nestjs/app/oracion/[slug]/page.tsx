@@ -23,7 +23,7 @@ export default function Page({ params }: { params: { slug: string } }) {
 
   return (
     <main
-      className={`flex min-h-screen flex-col items-center justify-center p-24 ${roboto.className}`}
+      className={`flex min-h-screen flex-col items-center justify-center p-24 text-slate-900 dark:text-slate-100 ${roboto.className}`}
     >
       <h1 className="text-2xl mb-4">
         {prayer.page} - {prayer.title}
