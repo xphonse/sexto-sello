@@ -21,9 +21,7 @@ const Button = ({
 
   return (
     <a href={url} className={`my-2 block ${sizeClasses}`}>
-      <button
-        className={`p-4 w-full rounded-pill truncate ${variantClasses}`}
-      >
+      <button className={`p-4 w-full rounded-pill truncate ${variantClasses}`}>
         {text}
       </button>
     </a>
