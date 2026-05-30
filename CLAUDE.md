@@ -72,3 +72,4 @@ paragraphs: [
 - User preferences are persisted to AsyncStorage under the keys `'fontSize'` and `'themeMode'`. Renaming these keys silently resets preferences for existing users.
 - `packages/nestjs` is a Next.js app, not the NestJS framework. The naming is a mistake that predates this codebase.
 - No test suite exists. The data library's test script exits with an error by design (placeholder).
+- `metro-config.js` is misnamed and never loaded by Metro; the monorepo resolves `libs/data` via workspace symlinks and Metro defaults. Do not rename or fix unless `data` fails to resolve at runtime.

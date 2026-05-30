@@ -38,6 +38,7 @@
         },
         "runtimeVersion": {
             "policy": "sdkVersion"
-        }
+        },
+        "newArchEnabled": false
     }
 }

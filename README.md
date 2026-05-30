@@ -38,14 +38,14 @@ nx dev nestjs
 
 ```bash
 # Iniciar servidor de desarrollo
-nx start react-native
+nx start @sexto-sello/app
 
 # Opción 1: Escanear QR con Expo Go (iOS/Android)
 # Opción 2: iOS Simulator (solo macOS)
-nx ios react-native
+nx ios @sexto-sello/app
 
 # Opción 3: Android Emulator
-nx android react-native
+nx android @sexto-sello/app
 ```
 
 ## Estructura del Proyecto
