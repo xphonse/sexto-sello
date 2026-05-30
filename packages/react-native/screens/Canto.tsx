@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux'
 import FooterArrows from '../components/FooterArrows'
 import { CHOIRS } from 'data'
 import useThemeColors from '../hooks/useThemeColors'
+import { fontSizes, spacing } from 'data'
 
 const Contenido = (props) => {
     const { themeColors } = useThemeColors()
@@ -14,7 +15,7 @@ const Contenido = (props) => {
                 <Text
                     style={{
                         ...styles.linea,
-                        color: themeColors.color,
+                        color: themeColors.text,
                         fontSize: fontSize,
                     }}
                 >
@@ -48,10 +49,10 @@ const Canto = (props) => {
         ))
 
     return (
-        <View style={{ flex: 1, backgroundColor: themeColors.backgroundColor }}>
-            <ScrollView contentContainerStyle={{ flexGrow: 1, padding: 10 }}>
+        <View style={{ flex: 1, backgroundColor: themeColors.bg }}>
+            <ScrollView contentContainerStyle={{ flexGrow: 1, padding: spacing.md }}>
                 <View style={styles.container}>
-                    <Text style={{ ...styles.title, color: themeColors.color }}>
+                    <Text style={{ ...styles.title, color: themeColors.text }}>
                         {choir.page} - {choir.title}
                     </Text>
                     <Parrafos />
@@ -74,19 +75,19 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'flex-start',
         justifyContent: 'flex-start',
-        padding: 10,
+        padding: spacing.md,
     },
     title: {
-        fontSize: 20,
+        fontSize: fontSizes.xl,
         textAlign: 'center',
         width: '100%',
     },
     parrafo: {
-        textAlign: 'justify',
+        textAlign: 'center',
         lineHeight: 16,
     },
     linea: {
-        textAlign: 'justify',
+        textAlign: 'center',
     },
     parrafoView: {
         paddingVertical: 2,

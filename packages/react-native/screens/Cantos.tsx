@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
 import MainFrame from '../components/MainFrame'
 import useThemeColors from '../hooks/useThemeColors'
 import { CHOIRS } from 'data'
+import { radii, fontSizes, elevation } from 'data'
 
 const Cantos = (props) => {
     const listOraciones = CHOIRS.map((c) => (
@@ -36,10 +37,17 @@ const Boton = (props) => {
                 })
             }
         >
-            <View style={{ ...styles.item, borderColor: themeColors.color }}>
+            <View
+                style={{
+                    ...styles.item,
+                    borderColor: themeColors.border,
+                    backgroundColor: themeColors.surface,
+                    ...elevation.e1Native,
+                }}
+            >
                 <Text
                     numberOfLines={1}
-                    style={{ ...styles.title, color: themeColors.color }}
+                    style={{ ...styles.title, color: themeColors.text }}
                 >
                     {props.pag}.- {props.titulo}
                 </Text>
@@ -65,10 +73,10 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         width: 300,
         maxWidth: '95%',
-        borderRadius: 80,
+        borderRadius: radii.pill,
     },
     title: {
-        fontSize: 20,
+        fontSize: fontSizes.xl,
     },
 })
 

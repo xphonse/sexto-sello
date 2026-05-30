@@ -2,6 +2,7 @@ import React from 'react'
 import { StyleSheet, Text, View, TouchableOpacity, Share } from 'react-native'
 import MainFrame from '../components/MainFrame'
 import useThemeColors from '../hooks/useThemeColors'
+import { fontSizes, spacing, radii } from 'data'
 
 const onShare = async () => {
     try {
@@ -29,7 +30,7 @@ const Informacion = () => {
     const InfoContainer = ({ children }) => (
         <View style={styles.informacionContainer}>
             <Text
-                style={{ ...styles.informacionText, color: themeColors.color }}
+                style={{ ...styles.informacionText, color: themeColors.text }}
             >
                 {children}
             </Text>
@@ -40,7 +41,7 @@ const Informacion = () => {
         <MainFrame>
             <View style={styles.container}>
                 <View style={styles.h1View}>
-                    <Text style={{ ...styles.h1, color: themeColors.color }}>
+                    <Text style={{ ...styles.h1, color: themeColors.text }}>
                         Información
                     </Text>
                 </View>
@@ -58,7 +59,7 @@ const Informacion = () => {
                     <Text
                         style={{
                             ...styles.informacionText,
-                            color: themeColors.color,
+                            color: themeColors.text,
                         }}
                     >
                         christian.ramirez.gutierrez.92@gmail.com{' '}
@@ -66,8 +67,13 @@ const Informacion = () => {
                 </View>
                 <View style={{ height: 30 }}></View>
                 <TouchableOpacity onPress={onShare}>
-                    <View style={styles.Button}>
-                        <Text style={{ color: themeColors.color }}>
+                    <View
+                        style={{
+                            ...styles.Button,
+                            backgroundColor: themeColors.accent,
+                        }}
+                    >
+                        <Text style={{ color: themeColors.accentText }}>
                             Compartir aplicación
                         </Text>
                     </View>
@@ -86,27 +92,25 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-start',
     },
     h1: {
-        fontSize: 24,
+        fontSize: fontSizes['2xl'],
     },
     h1View: {
-        paddingVertical: 20,
+        paddingVertical: spacing.xl,
         alignItems: 'center',
     },
     informacionText: {
-        fontSize: 18,
+        fontSize: fontSizes.lg,
         textAlign: 'justify',
     },
     informacionContainer: {
-        padding: 10,
+        padding: spacing.md,
     },
     Button: {
-        borderColor: '#ccc',
-        borderWidth: 1,
-        margin: 5,
-        padding: 20,
+        margin: spacing.xs,
+        padding: spacing.xl,
         width: 180,
         alignItems: 'center',
-        borderRadius: 80,
+        borderRadius: radii.pill,
     },
 })
 

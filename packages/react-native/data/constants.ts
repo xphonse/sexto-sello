@@ -1,5 +1,7 @@
+import { fontSizeClamp } from 'data'
+
 const appConstants = {
-    initialFontSize: 12,
+    initialFontSize: fontSizeClamp.default as number,
     initialThemeMode: 'light',
 }
 

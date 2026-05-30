@@ -8,6 +8,7 @@ import MainFrame from '../components/MainFrame'
 import TitleButton from '../components/TitleButton'
 import appConstants from '../data/constants'
 import useThemeColors from '../hooks/useThemeColors'
+import { fontSizes, spacing } from 'data'
 
 const Home = (props) => {
     const dispatch = useDispatch()
@@ -23,7 +24,6 @@ const Home = (props) => {
                 await AsyncStorage.setItem('fontSize', JSON.stringify(fontSize))
                 await AsyncStorage.setItem('themeMode', themeMode)
             }
-            console.log({ fontSize }, { themeMode })
             dispatch(setFontSizeByValue(fontSize))
             dispatch(setThemeMode(themeMode))
         }
@@ -34,32 +34,20 @@ const Home = (props) => {
         <MainFrame>
             <View style={styles.container}>
                 <View style={styles.h1View}>
-                    <Text style={{ ...styles.h1, color: themeColors.color }}>
+                    <Text style={{ ...styles.h1, color: themeColors.text }}>
                         Oraciones y Coros dados al
                     </Text>
-                    <Text style={{ ...styles.h2, color: themeColors.color }}>
+                    <Text style={{ ...styles.h2, color: themeColors.text }}>
                         Sexto Sello
                     </Text>
                 </View>
-                <TitleButton
-                    navigation={props.navigation}
-                    styles={styles}
-                    goTo="Oraciones"
-                >
+                <TitleButton navigation={props.navigation} goTo="Oraciones">
                     Oraciones
                 </TitleButton>
-                <TitleButton
-                    navigation={props.navigation}
-                    styles={styles}
-                    goTo="Cantos"
-                >
+                <TitleButton navigation={props.navigation} goTo="Cantos">
                     Canticos
                 </TitleButton>
-                <TitleButton
-                    navigation={props.navigation}
-                    styles={styles}
-                    goTo="Informacion"
-                >
+                <TitleButton navigation={props.navigation} goTo="Informacion">
                     Información
                 </TitleButton>
             </View>
@@ -76,25 +64,15 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     h1: {
-        fontSize: 24,
-        color: 'white',
+        fontSize: fontSizes['2xl'],
     },
     h1View: {
-        padding: 20,
+        padding: spacing.xl,
         alignItems: 'center',
     },
     h2: {
-        fontSize: 40,
+        fontSize: fontSizes['4xl'],
         fontWeight: 'bold',
-    },
-    Button: {
-        borderColor: '#ccc',
-        borderWidth: 1,
-        margin: 5,
-        padding: 20,
-        width: 180,
-        alignItems: 'center',
-        borderRadius: 80,
     },
 })
 

@@ -2,15 +2,22 @@ const Button = ({
   text,
   url,
   w = "32",
+  variant = "secondary",
 }: {
   text: string;
   url: string;
   w?: string;
+  variant?: "primary" | "secondary";
 }) => {
+  const variantClasses =
+    variant === "primary"
+      ? "bg-accent text-accent-text hover:opacity-90"
+      : "border border-border text-text bg-transparent hover:bg-surface";
+
   return (
     <a href={url}>
       <button
-        className={`m-2 p-4  w-${w} border-opacity-100 border-solid border border-slate-400 dark:border-slate-500 text-slate-900 dark:text-slate-100 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full truncate`}
+        className={`m-2 p-4 w-${w} rounded-pill truncate ${variantClasses}`}
       >
         {text}
       </button>

@@ -1,19 +1,14 @@
-import { Roboto } from "next/font/google";
 import Button from "@/components/Button";
 import Image from "next/image";
 import Link from "next/link";
 
-const roboto = Roboto({
-  weight: "400",
-  subsets: ["latin"],
-});
-
 export default function Home() {
   return (
-    <main
-      className={`flex min-h-screen flex-col items-center justify-center p-24 text-slate-900 dark:text-slate-100 ${roboto.className}`}
-    >
-      <h1 className="text-2xl mb-4">Oraciones y Coros dados al Sexto Sello</h1>
+    <main className="flex min-h-screen flex-col items-center justify-center p-24 bg-bg text-text">
+      <h1 className="text-4xl font-bold tracking-tight mb-2">Sexto Sello</h1>
+      <p className="text-text-muted mb-8">
+        Oraciones y Coros dados al Sexto Sello
+      </p>
       <Button text="Oraciones" url="/oracion" />
       <Button text="Cantos" url="/canto" />
       <Link href="https://play.google.com/store/apps/details?id=com.sextosello.cantos_y_coros">

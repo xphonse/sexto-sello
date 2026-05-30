@@ -36,9 +36,9 @@ const FooterArrows = (props) => {
     return (
         <View
             style={{
-                backgroundColor: themeColors.backgroundColor,
+                backgroundColor: themeColors.surface,
                 borderTopWidth: 1,
-                borderColor: '#ccc',
+                borderColor: themeColors.border,
             }}
         >
             <View
@@ -56,11 +56,11 @@ const FooterArrows = (props) => {
                         dispatch(decrementFontSize())
                     }}
                 >
-                    <Ionicons name="text" size={24} color={themeColors.color} />
+                    <Ionicons name="text" size={24} color={themeColors.text} />
                     <Ionicons
                         name="arrow-down"
                         size={24}
-                        color={themeColors.color}
+                        color={themeColors.text}
                     />
                 </TouchableOpacity>
                 <TouchableOpacity
@@ -74,13 +74,13 @@ const FooterArrows = (props) => {
                         <Ionicons
                             name="sunny"
                             size={24}
-                            color={themeColors.color}
+                            color={themeColors.text}
                         />
                     ) : (
                         <Ionicons
                             name="moon"
                             size={24}
-                            color={themeColors.color}
+                            color={themeColors.text}
                         />
                     )}
                 </TouchableOpacity>
@@ -94,12 +94,12 @@ const FooterArrows = (props) => {
                     <Ionicons
                         name="text-outline"
                         size={24}
-                        color={themeColors.color}
+                        color={themeColors.text}
                     />
                     <Ionicons
                         name="arrow-up"
                         size={24}
-                        color={themeColors.color}
+                        color={themeColors.text}
                     />
                 </TouchableOpacity>
             </View>
@@ -110,7 +110,7 @@ const FooterArrows = (props) => {
                     icon="arrow-back"
                     disabled={leftDisabled}
                     navigation={props.navigation}
-                    color={themeColors.color}
+                    color={themeColors.text}
                 />
                 <TouchableOpacity
                     style={{ flexDirection: 'row' }}
@@ -121,12 +121,12 @@ const FooterArrows = (props) => {
                     <Ionicons
                         name="settings-outline"
                         size={20}
-                        color={themeColors.color}
+                        color={themeColors.text}
                     />
                     <Ionicons
                         name={`arrow-${isSettingsOpened ? 'down' : 'up'}`}
                         size={20}
-                        color={themeColors.color}
+                        color={themeColors.text}
                     />
                 </TouchableOpacity>
                 <Arrow
@@ -135,7 +135,7 @@ const FooterArrows = (props) => {
                     icon="arrow-forward"
                     disabled={rightDisabled}
                     navigation={props.navigation}
-                    color={themeColors.color}
+                    color={themeColors.text}
                 />
             </View>
         </View>

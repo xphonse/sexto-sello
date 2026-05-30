@@ -1,8 +1,17 @@
 import { ReactNode } from "react";
 
-const Paragraph = ({ children }: { children: ReactNode }) => {
+const Paragraph = ({
+  children,
+  align = "center",
+}: {
+  children: ReactNode;
+  align?: "center" | "left";
+}) => {
+  const alignClass =
+    align === "left" ? "text-left max-w-prose" : "text-center w-96";
+
   return (
-    <div className="text-center mb-8 w-96 text-slate-900 dark:text-slate-100">
+    <div className={`mb-8 text-text leading-[1.65] ${alignClass}`}>
       {children}
     </div>
   );

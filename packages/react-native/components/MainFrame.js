@@ -1,6 +1,7 @@
 import React from 'react'
 import { View, StyleSheet, ScrollView } from 'react-native'
 import useThemeColors from '../hooks/useThemeColors'
+import { spacing } from 'data'
 
 const MainScreen = (props) => {
     const { themeColors } = useThemeColors()
@@ -10,7 +11,7 @@ const MainScreen = (props) => {
             <View
                 style={{
                     ...styles.screen,
-                    backgroundColor: themeColors.backgroundColor,
+                    backgroundColor: themeColors.bg,
                 }}
             >
                 {props.children}
@@ -22,7 +23,7 @@ const MainScreen = (props) => {
 const styles = StyleSheet.create({
     screen: {
         flex: 1,
-        padding: 15,
+        padding: spacing.lg,
         alignItems: 'center',
         justifyContent: 'center',
     },

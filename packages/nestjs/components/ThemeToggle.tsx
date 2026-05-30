@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { palette } from "data";
 
 const ThemeToggle = () => {
   const [isDark, setIsDark] = useState(false);
@@ -21,13 +22,20 @@ const ThemeToggle = () => {
     localStorage.setItem("theme", next ? "dark" : "light");
   };
 
+  // Preview the theme you'll get after clicking:
+  // in dark mode → a light/white button with a sun; in light mode → a dark button with a moon.
+  const preview = isDark ? palette.light : palette.dark;
+
   return (
     <button
       onClick={toggle}
       aria-label="Cambiar tema"
-      className={`fixed top-4 right-4 z-50 m-0 p-2 w-12 h-12 rounded-full border border-solid border-slate-400 text-xl backdrop-blur ${
-        isDark ? "bg-white/80" : "bg-slate-800"
-      }`}
+      className="fixed top-4 right-4 z-50 m-0 p-2 w-12 h-12 rounded-pill border border-solid text-xl backdrop-blur"
+      style={{
+        backgroundColor: preview.bg,
+        color: preview.text,
+        borderColor: preview.border,
+      }}
     >
       {isDark ? "☀️" : "🌙"}
     </button>
