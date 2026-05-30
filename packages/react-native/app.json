@@ -41,7 +41,7 @@
     "runtimeVersion": {
       "policy": "sdkVersion"
     },
-    "newArchEnabled": false,
+    "newArchEnabled": true,
     "plugins": [
       "expo-asset",
       "expo-font"
