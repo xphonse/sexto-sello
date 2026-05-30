@@ -42,9 +42,6 @@
       "policy": "sdkVersion"
     },
     "newArchEnabled": false,
-    "metro": {
-      "unstable_enablePackageExports": false
-    },
     "plugins": [
       "expo-asset",
       "expo-font"
