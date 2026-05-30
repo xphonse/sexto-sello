@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-24 bg-bg text-text">
+    <main className="flex min-h-screen flex-col items-center justify-center p-6 sm:p-12 lg:p-24 bg-bg text-text">
       <h1 className="text-4xl font-bold tracking-tight mb-2">Sexto Sello</h1>
       <p className="text-text-muted mb-8">
         Oraciones y Coros dados al Sexto Sello

@@ -1,12 +1,12 @@
 const Button = ({
   text,
   url,
-  w = "32",
+  size = "md",
   variant = "secondary",
 }: {
   text: string;
   url: string;
-  w?: string;
+  size?: "sm" | "md" | "full";
   variant?: "primary" | "secondary";
 }) => {
   const variantClasses =
@@ -14,10 +14,15 @@ const Button = ({
       ? "bg-accent text-accent-text hover:opacity-90"
       : "border border-border text-text bg-transparent hover:bg-surface";
 
+  // Full strings (not interpolated) so Tailwind's JIT always emits them.
+  // "full" stays within the viewport on mobile and caps at 384px on desktop.
+  const sizeClasses =
+    size === "full" ? "w-full max-w-sm" : size === "sm" ? "w-16" : "w-32";
+
   return (
-    <a href={url}>
+    <a href={url} className={`my-2 block ${sizeClasses}`}>
       <button
-        className={`m-2 p-4 w-${w} rounded-pill truncate ${variantClasses}`}
+        className={`p-4 w-full rounded-pill truncate ${variantClasses}`}
       >
         {text}
       </button>

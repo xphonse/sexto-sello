@@ -16,7 +16,7 @@ export default function Page({ params }: { params: { slug: string } }) {
   const nextPrayer = PRAYERS[prayerIndex + 1];
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-24 bg-bg text-text">
+    <main className="flex min-h-screen flex-col items-center px-6 pt-16 pb-12 sm:p-12 lg:p-24 bg-bg text-text">
       <h1 className="text-2xl font-semibold mb-1">{prayer.title}</h1>
       <p className="text-text-muted text-sm mb-6">{prayer.page}</p>
       {prayer.paragraphs.map((p, i) => (
@@ -29,11 +29,11 @@ export default function Page({ params }: { params: { slug: string } }) {
 
       <div className="flex space-x-4 mt-4">
         {prevPrayer && (
-          <Button text="←" url={`/oracion/${getSlug(prevPrayer)}`} />
+          <Button text="←" size="sm" url={`/oracion/${getSlug(prevPrayer)}`} />
         )}
         <Button text="Regresar" url="/oracion" />
         {nextPrayer && (
-          <Button text="→" url={`/oracion/${getSlug(nextPrayer)}`} />
+          <Button text="→" size="sm" url={`/oracion/${getSlug(nextPrayer)}`} />
         )}
       </div>
     </main>

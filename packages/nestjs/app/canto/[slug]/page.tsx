@@ -16,7 +16,7 @@ export default function Page({ params }: { params: { slug: string } }) {
   const nextChoir = CHOIRS[choirIndex + 1];
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-24 bg-bg text-text">
+    <main className="flex min-h-screen flex-col items-center px-6 pt-16 pb-12 sm:p-12 lg:p-24 bg-bg text-text">
       <h1 className="text-2xl font-semibold mb-1">{choir.title}</h1>
       <p className="text-text-muted text-sm mb-6">{choir.page}</p>
       {choir.paragraphs.map((p, i) => (
@@ -29,9 +29,13 @@ export default function Page({ params }: { params: { slug: string } }) {
         </Paragraph>
       ))}
       <div className="flex space-x-4 mt-4">
-        {prevChoir && <Button text="←" url={`/canto/${getSlug(prevChoir)}`} />}
+        {prevChoir && (
+          <Button text="←" size="sm" url={`/canto/${getSlug(prevChoir)}`} />
+        )}
         <Button text="Regresar" url="/canto" />
-        {nextChoir && <Button text="→" url={`/canto/${getSlug(nextChoir)}`} />}
+        {nextChoir && (
+          <Button text="→" size="sm" url={`/canto/${getSlug(nextChoir)}`} />
+        )}
       </div>
     </main>
   );

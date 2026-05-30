@@ -8,7 +8,7 @@ const Paragraph = ({
   align?: "center" | "left";
 }) => {
   const alignClass =
-    align === "left" ? "text-left max-w-prose" : "text-center w-96";
+    align === "left" ? "text-left max-w-prose" : "text-center w-full max-w-sm";
 
   return (
     <div className={`mb-8 text-text leading-[1.65] ${alignClass}`}>

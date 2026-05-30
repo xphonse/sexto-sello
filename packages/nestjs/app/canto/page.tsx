@@ -4,14 +4,14 @@ import { getSlug } from "@/helpers/slug";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-24 bg-bg text-text">
+    <main className="flex min-h-screen flex-col items-center px-6 pt-16 pb-12 sm:p-12 lg:p-24 bg-bg text-text">
       <h1 className="text-2xl font-semibold mb-4">Cantos</h1>
       {CHOIRS.map((c, i) => {
         return (
           <Button
             key={i}
             text={`${c.page} - ${c.title}`}
-            w="96"
+            size="full"
             url={"canto/" + getSlug(c)}
           />
         );
