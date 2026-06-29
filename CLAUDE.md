@@ -19,12 +19,19 @@ Import errors at runtime almost always mean this step was skipped.
 
 ### Website
 
-The site is a static export — `nx start` is never used in production.
+The site is a static export hosted on **S3 + CloudFront** — a private bucket
+(origin access control) behind a CloudFront distribution, with Route 53 DNS and
+an ACM cert. All infrastructure lives in `infra/` (Terraform). `nx start` is
+never used in production.
 
-```bash
-nx build nestjs          # outputs to packages/nestjs/out/
-# then rsync/scp packages/nestjs/out/ to the VPS
-```
+Pushing to `main` is the deploy: `.github/workflows/deploy.yml` builds `out/`,
+two-pass-syncs it to S3 over GitHub OIDC (no stored AWS keys), and invalidates
+CloudFront. To ship a change, commit and push to `main` — there is no other
+deploy path.
+
+If CI is unavailable, you can run the same steps locally with your own AWS
+credentials (build, then `aws s3 sync` the two passes, then `aws cloudfront
+create-invalidation`); see `.github/workflows/deploy.yml` for the exact commands.
 
 All image `src` values are prefixed with `/images/` by the custom loader in `packages/nestjs/imgLoader.js`. Static images must live in `packages/nestjs/public/images/`.
 
@@ -60,10 +67,6 @@ paragraphs: [
 ```
 
 **Slugs** — routes are generated as `/{page}-{normalized-title}`. The `page` field is the page number from the physical book. It prefixes the slug and must be unique within the collection.
-
-## Known dead code
-
-`packages/react-native/helpers/speech.ts` (`speakParagraph`) references `parrafo.texto`, which doesn't exist in the actual data structures. The text-to-speech feature was never finished. Don't wire it up without rewriting it first.
 
 ## Known quirks
 

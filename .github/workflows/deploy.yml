@@ -1,0 +1,70 @@
+name: Deploy website to S3 + CloudFront
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# Required for GitHub OIDC -> AWS role assumption (no stored AWS keys).
+permissions:
+  id-token: write
+  contents: read
+
+# Never let two deploys overlap — they would race on the pass-B `--delete`.
+concurrency:
+  group: deploy-website
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      AWS_REGION: us-east-1
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      # libs/data must be compiled before the site build (see CLAUDE.md).
+      - name: Build data library
+        run: npx nx build data
+
+      - name: Build website (static export -> packages/nestjs/out)
+        run: npx nx build nestjs
+
+      - name: Configure AWS credentials (OIDC)
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ vars.AWS_ROLE_ARN }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      # Pass A: content-hashed assets, immutable, no prune.
+      - name: Sync immutable assets
+        run: |
+          aws s3 sync packages/nestjs/out "s3://${{ vars.AWS_S3_BUCKET }}" \
+            --exclude "*.html" --exclude "*.txt" \
+            --cache-control "public,max-age=31536000,immutable" \
+            --no-progress
+
+      # Pass B: HTML/text with a short TTL, and prune removed files. sync skips
+      # the assets already uploaded in pass A, preserving their immutable header.
+      - name: Sync HTML/text and prune removed files
+        run: |
+          aws s3 sync packages/nestjs/out "s3://${{ vars.AWS_S3_BUCKET }}" \
+            --delete \
+            --cache-control "public,max-age=60,must-revalidate" \
+            --no-progress
+
+      - name: Invalidate CloudFront
+        run: |
+          aws cloudfront create-invalidation \
+            --distribution-id "${{ vars.CF_DISTRIBUTION_ID }}" \
+            --paths "/*"
