@@ -50,7 +50,9 @@ const Canto = (props) => {
 
     return (
         <View style={{ flex: 1, backgroundColor: themeColors.bg }}>
-            <ScrollView contentContainerStyle={{ flexGrow: 1, padding: spacing.md }}>
+            <ScrollView
+                contentContainerStyle={{ flexGrow: 1, padding: spacing.md }}
+            >
                 <View style={styles.container}>
                     <Text style={{ ...styles.title, color: themeColors.text }}>
                         {choir.page} - {choir.title}

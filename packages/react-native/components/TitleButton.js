@@ -7,12 +7,7 @@ const TitleButton = (props) => {
     const { themeColors } = useThemeColors()
     return (
         <TouchableOpacity onPress={() => props.navigation.navigate(props.goTo)}>
-            <View
-                style={[
-                    styles.button,
-                    { borderColor: themeColors.border },
-                ]}
-            >
+            <View style={[styles.button, { borderColor: themeColors.border }]}>
                 <Text style={{ color: themeColors.text }}>
                     {props.children}
                 </Text>
