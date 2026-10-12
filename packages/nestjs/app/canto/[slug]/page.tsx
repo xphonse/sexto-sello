@@ -7,8 +7,13 @@ export async function generateStaticParams() {
   return CHOIRS.map((c) => ({ slug: getSlug(c) }));
 }
 
-export default function Page({ params }: { params: { slug: string } }) {
-  const choirIndex = CHOIRS.findIndex((c) => getSlug(c) === params.slug);
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const choirIndex = CHOIRS.findIndex((c) => getSlug(c) === slug);
   const choir = CHOIRS[choirIndex];
   if (!choir) return <div></div>;
 

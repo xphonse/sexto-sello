@@ -7,7 +7,7 @@ Monorepo Nx con el sitio web (Next.js) y la app móvil (React Native/Expo) de or
 
 ## Requisitos
 
-- **Node.js** v18.20.4 (verificar con `node -v`; el repo incluye `.nvmrc`)
+- **Node.js** v22.22.3 (verificar con `node -v`; el repo incluye `.nvmrc`)
 - **Nx** global: `npm add --global nx@latest`
 - **Xcode** para desarrollo iOS (solo macOS)
 - **Android Studio** para desarrollo Android
