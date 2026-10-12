@@ -57,7 +57,7 @@ export const PRAYERS: Prayers = [
         title: 'ORACION',
         paragraphs: [
             [
-                'Creador y Redentor nuestro, por ser Tú quien eres en quien creemos y porque nos amas, nos pesa de corazón haberte ofendido, haber ofendido a nuestro semejante y hermano; nosotros nos proponemos hacer lo que estuviese de nuestra parte, para perseverar en tu servicio y enmendarlos de todas nuestras faltas, pero contando desde esta hora con el auxilio de tu Divina Gracia y con los méritos de nuestro amado Jesús, por quien fuimos redimidos y llevados a la luz Verdadera nos disponemos a sufrir con paciencia las mortificaciones que por nuestras faltas tuvieras a bien enviarnos en beneficio nuestro, así como te suplicamos confiamos en que nos perdonamos y nos llenarás de tu Divina Gracia. ',
+                'Creador y Redentor nuestro, por ser Tú quien eres en quien creemos y porque nos amas, nos pesa de corazón haberte ofendido, haber ofendido a nuestro semejante y hermano; nosotros nos proponemos hacer lo que estuviese de nuestra parte, para perseverar en tu servicio y enmendarlos de todas nuestras faltas, pero contando desde esta hora con el auxilio de tu Divina Gracia y con los méritos de nuestro amado Jesús, por quien fuimos redimidos y llevados a la luz Verdadera nos disponemos a sufrir con paciencia las mortificaciones que por nuestras faltas tuvieras a bien enviarnos en beneficio nuestro, así como te suplicamos confiamos en que nos perdonarás y nos llenarás de tu Divina Gracia. ',
             ],
         ],
     },
@@ -67,7 +67,7 @@ export const PRAYERS: Prayers = [
         title: 'PADRE NUESTRO',
         paragraphs: [
             [
-                'Padre Nuestro que estas en el cielo, en la Tierra y en todo lugar, por Esencia, Presencia y Potencia, Santificado sea tu nombre, venga a nosotros tu Reino, te suplicamos que no dejes de reinar entre nosotros, que dispuestos estamos a hacer y a recibir lo que tuvieras a bien en tu voluntad enviarnos en beneficio nuestro.',
+                'Padre Nuestro que estás en el cielo, en la Tierra y en todo lugar, por Esencia, Presencia y Potencia, Santificado sea tu nombre, venga a nosotros tu Reino, te suplicamos que no dejes de reinar entre nosotros, que dispuestos estamos a hacer y a recibir lo que tuvieras a bien en tu voluntad enviarnos en beneficio nuestro.',
             ],
 
             [
@@ -119,17 +119,17 @@ export const PRAYERS: Prayers = [
             [
                 'Creo en Dios Padre Todopoderoso, Creador del Cielo, de la Tierra y de todas las cosas visibles e invisibles.',
                 'Señor Nuestro.',
-                'Creo que es el único y verdadero dios.',
-                'Creo firmemente que no ha habido otro Dios, ni antes ni despues del verdadero.',
-                'Creo que es Misericordioso, justo Perfectisimo y Santo.',
-                'Creo que es la sabiduria infinita y la luz verdadera.',
+                'Creo que es el único y verdadero Dios.',
+                'Creo firmemente que no ha habido otro Dios, ni antes ni después del verdadero.',
+                'Creo que es Misericordioso, justo Perfectísimo y Santo.',
+                'Creo que es la sabiduría infinita y la luz verdadera.',
                 'Creo que premia por las virtudes y mortifica por los vicios.',
                 'Creo que es el juzgador de los hombres, que ve sus acciones y sabe sus pensamientos.',
                 'Creo que se comunica con el hombre por medio del entendimiento, como Espíritu Santo.',
                 'Creo que todo lo que determina es bueno y perfecto y que nunca se ocupará de lo superfluo y malo.',
                 'Creo que existe en su creación todo para conservarlo en beneficio de sus hijos.',
                 'Creo que siempre a mandado al mundo hombres por quienes ha aconsejado las virtudes a sus hijos.',
-                'Creo en Jesús, como el hombre en quien dios se oculto para salvar a sus hijos de los vicios.',
+                'Creo en Jesús, como el hombre en quien Dios se ocultó para salvar a sus hijos de los vicios.',
                 'Creo que hemos de ser resucitados a la vida de la Gracia.',
                 'Creo en la iglesia que estableció Jesús, regida por el Espíritu Santo y en los Apóstoles, modelo de perfecta, caridad y humildad.',
                 'Creo así mismo en María como madre de Jesús.',
@@ -150,13 +150,13 @@ export const PRAYERS: Prayers = [
                 '2 No hablarás mal de tus hermanos, aunque tengas justicia para ello, a Dios toca defender tu causa si fuere justa.',
                 '3 No amarás religión que no tenga por base el amor a Dios y la caridad perfecta con sus hijos sean los que fueren y a la pureza de María.',
                 '4 Amarás a tus padres después que a Dios y a tus hijos lo mismo. Para los primeros, la veneración y el respeto; para los segundos, la caridad y el buen ejemplo en todo. Si hacéis lo contrario, seréis juzgados con rigor como autores del mal.',
-                '5 No jurarás sobre cosa o criatura al guna con falsedad, ni tomarás a Dios como testigo de mentira, si lo hacéis el Hijo del Hombre te demandará porque a El toca defender tu causa.',
+                '5 No jurarás sobre cosa o criatura alguna con falsedad, ni tomarás a Dios como testigo de mentira, si lo hacéis el Hijo del Hombre te demandará porque a El toca defender tu causa.',
                 '6 No harás trabajo lucrativo el día Domingo, y si lo haceis por tu pobreza o compromiso verdadero te impondrás una penitencia conforme a tus circunstancias por pertenecer este día a Dios.',
                 '7 No tomarás la mujer de tu hermano como si fuera tu esposa, ni harás mal a las que no son de tus hermanos',
-                '8 No tomarás lo ajeno sin permiso del dueño, ni usura, causando grandes males con la usura, si esto fuera de restitucion para ti, solo se te conocideran las ganancias que estan admitidas por las leyes.',
+                '8 No tomarás lo ajeno sin permiso del dueño, ni usura, causando grandes males con la usura, si esto fuera de restitución para ti, solo se te considerarán las ganancias que estan admitidas por las leyes.',
                 '9 No tomarás bebida embriagadora.',
                 '10 No tendrás ocupación ruinosa o que quite la moralidad y proteja en algo los vicios.',
-                '11 No protegerás la guerra civil dividiendo a tus hermanos y sólo se te permitirá que tomes parte en que rras extranjeras cuando el gobierno no sea el que fuere lo considerase y aún asi te portas con la mayor caridad por que todos sois hermanos hijos de Dios.',
+                '11 No protegerás la guerra civil dividiendo a tus hermanos y sólo se te permitirá que tomes parte en guerras extranjeras cuando el gobierno no sea el que fuere lo considerase y aún asi te portas con la mayor caridad por que todos sois hermanos hijos de Dios.',
                 '12 No harás infanticidio en los niños que estén por nacer y si lo hacéis seras castigado con la maldición del Espíritu Santo.',
                 '13 No trates mal ni con rigor a los pobres, sean lo que fueren.',
                 '14 Nada de lo creado maldecirás.',
@@ -164,7 +164,7 @@ export const PRAYERS: Prayers = [
                 '16 No hablarás mal de los seres en publico causando su deshonra.',
                 '17 No abandonarás a tus hijos en manos extrañas y sólo lo harás por tu necesidad de que otro les haga el bien, cuando sea conocida la conducta de la persona bienhechora.',
                 '18 No esforzarás a los niños a que hagan aquellos trabajos que les enseñen vicios.',
-                '19 No enseñarás a persona alguna historías o cuentos por consejas de la manera siguiente: de diablos, condenados, brujas, duendes, espíritus malignos, milagros que no sean ciertos, apariciones de imágenes que no hayan sido verdad, castigos falsos, transformaciones de gentes, todo lo superfluo y malo. 20 No detendrás lo ajeno en tu poder.',
+                '19 No enseñarás a persona alguna historias o cuentos por consejas de la manera siguiente: de diablos, condenados, brujas, duendes, espíritus malignos, milagros que no sean ciertos, apariciones de imágenes que no hayan sido verdad, castigos falsos, transformaciones de gentes, todo lo superfluo y malo. 20 No detendrás lo ajeno en tu poder.',
                 '21 Visitarás y consolarás a los enfermos siempre que puedas. ',
                 '22 No tomarás armas en contra de tus hermanos ni le quitarás la vida sea con arma o sea civil.',
                 'Dice mi Padre Elías: Cumplid hijos míos con estos veintidós Preceptos y veréis a mi Padre en todo su esplendor, caridad y más caridad con vuestros hermanos y daréis testimonio de mi Padre.',
@@ -181,7 +181,7 @@ export const PRAYERS: Prayers = [
                 'Suplicamoste Señor, que lleguen a Ti nuestras plegarias, en el Nombre del Padre, del Hijo, del Espíritu Santo.',
             ],
 
-            ['(Despues de cada renglon, se dice Líbranos Señor).'],
+            ['(Después de cada renglón, se dice Líbranos Señor).'],
 
             [
                 'De la impiedad herética.',
@@ -246,21 +246,21 @@ export const PRAYERS: Prayers = [
                 'Relámpagos y truenos.',
                 'Fuego y calor. ',
                 'Movimientos de la tierra.',
-                'Mares, lagos y rios.',
+                'Mares, lagos y ríos.',
                 'Vapores y gases.',
                 'Montes altos y bajos.',
                 'Caminos y veredas.',
                 'Lugares todos de la tierra.',
                 'Aves del aire.',
                 'Inocentes de la tierra.',
-                'Niños y jovenes.',
+                'Niños y jóvenes.',
                 'Justos y virtuosos.',
                 'Peces de todas clases.',
                 'Cuadrúpedos de todos.',
                 'Reptiles de todas las familias.',
                 'Sabandijas diversas.',
                 'Arboles y plantas.',
-                'Arbusto y flores.',
+                'Arbustos y flores.',
                 'Musgos y lamas.',
                 'Oro, plata y todo metal.',
                 'Hombres y mujeres de todas las razas, de todas las tribus de la redondez de la tierra.',
@@ -281,7 +281,7 @@ export const PRAYERS: Prayers = [
             ],
 
             [
-                'Espíritu Divino de la Primera Persona de Tu Padre, desciende Poder infinito, ven Padre queridísimo, Dueño de todo lo creado. ¡Oh Gran Jehová! no veas nuestras faltas Señor, ya que contritos y arrepentidos nos encontramos de nuestras múltiples faltas cometidas a tu Divina y Excelsa Majestad, Señor, mas eres Nuestro Padre y nos perdonamos y escucharás en este instante nuestra súplica que le vamos hacia Ti. ¡Oh Eterno!, concédenos lo que te pedimos por tu Ser que El Padre, El Hijo y El Espíritu Santo.',
+                'Espíritu Divino de la Primera Persona de Tu Padre, desciende Poder infinito, ven Padre queridísimo, Dueño de todo lo creado. ¡Oh Gran Jehová! no veas nuestras faltas Señor, ya que contritos y arrepentidos nos encontramos de nuestras múltiples faltas cometidas a tu Divina y Excelsa Majestad, Señor, mas eres Nuestro Padre y nos perdonarás y escucharás en este instante nuestra súplica que le vamos hacia Ti. ¡Oh Eterno!, concédenos lo que te pedimos por tu Ser que El Padre, El Hijo y El Espíritu Santo.',
             ],
 
             [
@@ -293,7 +293,7 @@ export const PRAYERS: Prayers = [
             ],
 
             [
-                'Mira Señor, somos los caminantes errantes porque nuestro espíritu no tiene tu Paz Divina, porque nos hemos apartado de Ti, hemos perdido tu Divina Huella y perdidos en el desierto nos encontramos sedientos, hambrientos y desnudos de ropaje, porque consigo no llevamos obras de caridad y amor. Pero Tú Señor, que eres fuente inagotable de bondad, vendrás en nuestra ayuda da y con tu Divina Fuerza nos confortarás para seguir nuestra jornada terrestre. Concédenos lo que te pedimos, por la Sangre que derramaste en el Ara Santa de la Cruz para redimirnos a nosotros los pecadores, recibe nuestras preces Padre Amoroso. Somos indignos de que nos escuches, somos los blasfemos, somos los renegos, somos los que prevaricamos y mancillamos, somos los fariseos pero tú eres Nuestro Dios y Señor nos perdonas por tu ser que eres El Padre, el Hijo y el Espíritu Santo.',
+                'Mira Señor, somos los caminantes errantes porque nuestro espíritu no tiene tu Paz Divina, porque nos hemos apartado de Ti, hemos perdido tu Divina Huella y perdidos en el desierto nos encontramos sedientos, hambrientos y desnudos de ropaje, porque consigo no llevamos obras de caridad y amor. Pero Tú Señor, que eres fuente inagotable de bondad, vendrás en nuestra ayuda y con tu Divina Fuerza nos confortarás para seguir nuestra jornada terrestre. Concédenos lo que te pedimos, por la Sangre que derramaste en el Ara Santa de la Cruz para redimirnos a nosotros los pecadores, recibe nuestras preces Padre Amoroso. Somos indignos de que nos escuches, somos los blasfemos, somos los renegos, somos los que prevaricamos y mancillamos, somos los fariseos pero tú eres Nuestro Dios y Señor nos perdonas por tu ser que eres El Padre, el Hijo y el Espíritu Santo.',
             ],
 
             [
@@ -301,7 +301,7 @@ export const PRAYERS: Prayers = [
             ],
 
             [
-                'Concédenos lo que te pedimos por nuestra Purísima Madre, que sea Ella la que en este momento pida por nosotros los desamparados. Te lo pido Señor, por nuestro Guía Espiritual. En este momento te hago presente las carceles y los presidios donde se encuentran recluidos nuestros hermanos, que no blasfemen, que con tu Fuerza Divina sean sumisos y obedientes y que curan do abandonen aquellos lugares, arrepentidos se encuentren pidiéndote el perdón. Te hago presente Señor, a mis hermanos que en el lecho del dolor se encuentran, llenos de cuitas pero TU eres Doctor de los doctores. Manda les tu caridad, porque les hace falta tu bálsamo divino y envíales lo que sea tu voluntad. Te hago presente Señor, a mis hermanos los que en la orfandad se encuentran, los que no tienen un techo donde cubrirse de la interperie de tiempos pero Tú como buen padre los recibes y con tu Manto Divino los cubres; te hago presente todas nuestras necesidades, escucha lo que nuestro espíritu te pide, perdona nuestras faltas no contemples nuestras iniquidades, i Escuchanos Señor! Para que reunidas nuestras voces a los coros de tus Angeles, Arcángeles, Serafines y Querubines, ancianos, Justos y Jovenes, no cesemos de cantar: Gloria a Dios en las Alturas y Paz en la Tierra a los hombres de buena voluntad. ',
+                'Concédenos lo que te pedimos por nuestra Purísima Madre, que sea Ella la que en este momento pida por nosotros los desamparados. Te lo pido Señor, por nuestro Guía Espiritual. En este momento te hago presente las carceles y los presidios donde se encuentran recluidos nuestros hermanos, que no blasfemen, que con tu Fuerza Divina sean sumisos y obedientes y que cuando abandonen aquellos lugares, arrepentidos se encuentren pidiéndote el perdón. Te hago presente Señor, a mis hermanos que en el lecho del dolor se encuentran, llenos de cuitas pero TU eres Doctor de los doctores. Manda les tu caridad, porque les hace falta tu bálsamo divino y envíales lo que sea tu voluntad. Te hago presente Señor, a mis hermanos los que en la orfandad se encuentran, los que no tienen un techo donde cubrirse de la intemperie de tiempos pero Tú como buen padre los recibes y con tu Manto Divino los cubres; te hago presente todas nuestras necesidades, escucha lo que nuestro espíritu te pide, perdona nuestras faltas no contemples nuestras iniquidades, ¡Escúchanos Señor! Para que reunidas nuestras voces a los coros de tus Angeles, Arcángeles, Serafines y Querubines, ancianos, Justos y Jóvenes, no cesemos de cantar: Gloria a Dios en las Alturas y Paz en la Tierra a los hombres de buena voluntad. ',
             ],
 
             ['Hosana, Hosana, que la Fuerza del Señor ya es entre nosotros.'],
@@ -323,16 +323,16 @@ export const PRAYERS: Prayers = [
                 'A Ti te alaban los inocentes que no se corrompen con los malvados.',
                 'A Ti la Iglesia Santa fe confiesa en las partes en que creen en Ti.',
                 'Padre Eterno de grande majestad. te adoramos representado en la persona del Hijo y seguiremos adorándote representado en la persona del Espíritu Santo.',
-                '¡A Ti, iOh Dios Mío! Tú que estas en todas partes.',
+                '¡A Ti, ¡Oh Dios Mío! Tú que estás en todas partes.',
                 'Tú escogiste una mujer Virgen y Pura, para que fuera la Madre de Jesús a la cual nosotros adoramos.',
                 'Tú nos liberas de perder tu Gracia.',
                 'Tú nos has de dar tu Gloria y en Ti viviremos. ',
                 'Tú estás a la diestra del Padre y de todo aquel que te llama y has venido al mundo a juzgar a los hombres.',
-                'Por tanto que esperamos de Ti, te ro gamos padre Nuestro, nos socarras con tus beneficios.',
+                'Por tanto que esperamos de Ti, te rogamos padre Nuestro, nos socorras con tus beneficios.',
                 'Queremos ser del número de tus justos en la Gloria Eterna.',
                 'Concédenos Señor lo que te pedimos pues eres Nuestro Padre.',
                 'Salva a tu pueblo Dios mío, dáles tus bendiciones a éstos tus hijos',
-                'Gobiérnanos Dios mio. Tú que éstas entre nosotros.',
+                'Gobiérnanos Dios mío. Tú que estás entre nosotros.',
                 'Todos los días te manifestaremos nuestra gratitud por los beneficios que recibimos de Ti.',
                 'Alabaremos tu Santo Nombre en esta vida y después en la eterna.',
                 'Líbranos a nosotros, obre sobre nosotros tu misericordia, según Tú lo dispones siempre.',
