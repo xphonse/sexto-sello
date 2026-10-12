@@ -7,8 +7,13 @@ export async function generateStaticParams() {
   return PRAYERS.map((prayer) => ({ slug: getSlug(prayer) }));
 }
 
-export default function Page({ params }: { params: { slug: string } }) {
-  const prayerIndex = PRAYERS.findIndex((p) => getSlug(p) === params.slug);
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const prayerIndex = PRAYERS.findIndex((p) => getSlug(p) === slug);
   const prayer = PRAYERS[prayerIndex];
   if (!prayer) return <div></div>;
 
