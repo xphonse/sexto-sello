@@ -48,3 +48,8 @@ infra/.terraform/
 *.tfstate.*
 *.tfvars
 !*.tfvars.example
+
+# Environment files — may hold secrets.
+.env
+.env.*
+!.env.example

@@ -7,6 +7,9 @@ npm-debug.*
 *.p12
 *.key
 *.mobileprovision
+# EAS local credentials (keystore passwords) and Play Store submit key
+credentials.json
+service-account.json
 *.orig.*
 web-build/
 

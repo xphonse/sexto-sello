@@ -47,6 +47,8 @@ eas build --platform ios --profile production
 
 EAS profiles (`eas.json`): `development` (internal), `preview` (internal), `production`.
 
+`libs/data/dist` is gitignored, so it never reaches the EAS build server. The `eas-build-post-install` script in `packages/react-native/package.json` compiles it after `npm ci`; without it, Metro fails with "could not resolve `data/dist/index.js`".
+
 ## Adding or editing content
 
 Edit `libs/data/choirs.ts` or `libs/data/prayers.ts` directly, then run `nx build data`.

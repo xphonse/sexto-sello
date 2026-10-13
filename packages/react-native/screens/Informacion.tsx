@@ -1,14 +1,34 @@
 import React from 'react'
-import { StyleSheet, Text, View, TouchableOpacity, Share } from 'react-native'
+import {
+    StyleSheet,
+    Text,
+    View,
+    TouchableOpacity,
+    Share,
+    Platform,
+    Linking,
+} from 'react-native'
 import MainFrame from '../components/MainFrame'
 import useThemeColors from '../hooks/useThemeColors'
 import { fontSizes, spacing, radii } from 'data'
 
+const isIOS = Platform.OS === 'ios'
+
+const SITE_URL = 'https://sextosello.com/'
+const PRIVACY_URL = 'https://sextosello.com/privacidad'
+// TODO: replace idTODO with the Apple ID from App Store Connect → App Information.
+const APP_STORE_URL = 'https://apps.apple.com/app/idTODO'
+const PLAY_STORE_URL =
+    'https://play.google.com/store/apps/details?id=com.sextosello.cantos_y_coros'
+
+const shareMessage = isIOS
+    ? `Descargar aplicación en App Store: \n  ${APP_STORE_URL}`
+    : `Descargar aplicación en Play Store: \n  ${PLAY_STORE_URL}`
+
 const onShare = async () => {
     try {
         const result = await Share.share({
-            message:
-                'Descargar aplicación en Play Store: \n  https://play.google.com/store/apps/details?id=com.sextosello.cantos_y_coros',
+            message: shareMessage,
         })
 
         if (result.action === Share.sharedAction) {
@@ -65,6 +85,20 @@ const Informacion = () => {
                         christian.ramirez.gutierrez.92@gmail.com{' '}
                     </Text>
                 </View>
+                <InfoContainer>
+                    También puedes consultar los cantos y oraciones en: 
+                </InfoContainer>
+                <TouchableOpacity onPress={() => Linking.openURL(SITE_URL)}>
+                    <Text
+                        style={{
+                            ...styles.informacionText,
+                            ...styles.link,
+                            color: themeColors.text,
+                        }}
+                    >
+                        sextosello.com
+                    </Text>
+                </TouchableOpacity>
                 <View style={{ height: 30 }}></View>
                 <TouchableOpacity onPress={onShare}>
                     <View
@@ -78,6 +112,20 @@ const Informacion = () => {
                         </Text>
                     </View>
                 </TouchableOpacity>
+                {isIOS && (
+                    <TouchableOpacity
+                        onPress={() => Linking.openURL(PRIVACY_URL)}
+                    >
+                        <Text
+                            style={{
+                                ...styles.privacyText,
+                                color: themeColors.textMuted,
+                            }}
+                        >
+                            Política de privacidad
+                        </Text>
+                    </TouchableOpacity>
+                )}
             </View>
         </MainFrame>
     )
@@ -104,6 +152,14 @@ const styles = StyleSheet.create({
     },
     informacionContainer: {
         padding: spacing.md,
+    },
+    link: {
+        textDecorationLine: 'underline',
+    },
+    privacyText: {
+        fontSize: fontSizes.sm,
+        textDecorationLine: 'underline',
+        marginTop: spacing.lg,
     },
     Button: {
         margin: spacing.xs,
